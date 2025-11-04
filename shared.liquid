@@ -1,0 +1,294 @@
+<style>
+  .rcipe-trckr{height:auto;width:auto}
+  .rcipe-trckr.half-h{height:auto}
+  .rcipe-trckr.half-v{height:auto}
+  .rcipe-trckr.quad{height:auto}
+</style>
+
+{% assign dlm = "¶" %}
+{% assign ns = "" %}{% assign is = "" %}{% assign fs = "" %}
+{% if IDX_0 and IDX_0.data %}{% assign ns = ns | append: IDX_0.data.name %}{% assign is = is | append: IDX_0.data.stats.installs %}{% assign fs = fs | append: IDX_0.data.stats.forks %}{% endif %}
+{% if IDX_1 and IDX_1.data %}{% if ns != "" %}{% assign ns = ns | append: dlm %}{% assign is = is | append: dlm %}{% assign fs = fs | append: dlm %}{% endif %}{% assign ns = ns | append: IDX_1.data.name %}{% assign is = is | append: IDX_1.data.stats.installs %}{% assign fs = fs | append: IDX_1.data.stats.forks %}{% endif %}
+{% if IDX_2 and IDX_2.data %}{% if ns != "" %}{% assign ns = ns | append: dlm %}{% assign is = is | append: dlm %}{% assign fs = fs | append: dlm %}{% endif %}{% assign ns = ns | append: IDX_2.data.name %}{% assign is = is | append: IDX_2.data.stats.installs %}{% assign fs = fs | append: IDX_2.data.stats.forks %}{% endif %}
+{% if IDX_3 and IDX_3.data %}{% if ns != "" %}{% assign ns = ns | append: dlm %}{% assign is = is | append: dlm %}{% assign fs = fs | append: dlm %}{% endif %}{% assign ns = ns | append: IDX_3.data.name %}{% assign is = is | append: IDX_3.data.stats.installs %}{% assign fs = fs | append: IDX_3.data.stats.forks %}{% endif %}
+{% if IDX_4 and IDX_4.data %}{% if ns != "" %}{% assign ns = ns | append: dlm %}{% assign is = is | append: dlm %}{% assign fs = fs | append: dlm %}{% endif %}{% assign ns = ns | append: IDX_4.data.name %}{% assign is = is | append: IDX_4.data.stats.installs %}{% assign fs = fs | append: IDX_4.data.stats.forks %}{% endif %}
+{% if IDX_5 and IDX_5.data %}{% if ns != "" %}{% assign ns = ns | append: dlm %}{% assign is = is | append: dlm %}{% assign fs = fs | append: dlm %}{% endif %}{% assign ns = ns | append: IDX_5.data.name %}{% assign is = is | append: IDX_5.data.stats.installs %}{% assign fs = fs | append: IDX_5.data.stats.forks %}{% endif %}
+{% if IDX_6 and IDX_6.data %}{% if ns != "" %}{% assign ns = ns | append: dlm %}{% assign is = is | append: dlm %}{% assign fs = fs | append: dlm %}{% endif %}{% assign ns = ns | append: IDX_6.data.name %}{% assign is = is | append: IDX_6.data.stats.installs %}{% assign fs = fs | append: IDX_6.data.stats.forks %}{% endif %}
+{% if IDX_7 and IDX_7.data %}{% if ns != "" %}{% assign ns = ns | append: dlm %}{% assign is = is | append: dlm %}{% assign fs = fs | append: dlm %}{% endif %}{% assign ns = ns | append: IDX_7.data.name %}{% assign is = is | append: IDX_7.data.stats.installs %}{% assign fs = fs | append: IDX_7.data.stats.forks %}{% endif %}
+{% if IDX_8 and IDX_8.data %}{% if ns != "" %}{% assign ns = ns | append: dlm %}{% assign is = is | append: dlm %}{% assign fs = fs | append: dlm %}{% endif %}{% assign ns = ns | append: IDX_8.data.name %}{% assign is = is | append: IDX_8.data.stats.installs %}{% assign fs = fs | append: IDX_8.data.stats.forks %}{% endif %}
+{% if IDX_9 and IDX_9.data %}{% if ns != "" %}{% assign ns = ns | append: dlm %}{% assign is = is | append: dlm %}{% assign fs = fs | append: dlm %}{% endif %}{% assign ns = ns | append: IDX_9.data.name %}{% assign is = is | append: IDX_9.data.stats.installs %}{% assign fs = fs | append: IDX_9.data.stats.forks %}{% endif %}
+
+<script>
+window.RCIPE_SHARED=(function(){
+const CONFIG={
+SHOW_DONUTS:true,
+DONUT_SCALE:0.60,
+LEGEND_ROW_HEIGHT:24,
+HEADER_SCALE:0.68,
+DATA_NUM_SCALE:0.60,
+DATA_NAME_SCALE:0.60,
+DONUT_LABEL_SCALE:0.50,
+DONUT_LABEL_OFFSET:0.85,
+PIES_MAX_HEIGHT:230,
+PIES_TOP_PAD:8,
+PIES_BOTTOM_PAD:36,
+BLOCK_GAP:6,
+COLUMNS:[
+  {id:"swatch-left",visible:true,width:24,header:""},
+  {id:"installs",visible:true,width:70,header:"INSTALLS",align:"center"},
+  {id:"name",visible:true,flex:1,header:"PLUGIN NAME",align:"center"},
+  {id:"forks",visible:true,width:70,header:"FORKS",align:"center"},
+  {id:"swatch-right",visible:true,width:24,header:""}
+],
+MAX_ROWS:10,
+FULL:{BOX:{w:800,h:440}},
+HH:{
+  ROW_HEIGHT:24,
+  HEADER_SCALE:0.68,
+  NAME_SCALE:0.64,
+  NUM_SCALE:0.64,
+  COLS:[
+    {id:"name",visible:true,width:300,header:"PLUGIN",align:"left"},
+    {id:"installs",visible:true,width:64,header:"INSTALLS",align:"right"},
+    {id:"forks",visible:true,width:64,header:"FORKS",align:"right"},
+    {id:"total",visible:true,width:64,header:"TOTAL",align:"right"}
+  ],
+  MAX_ROWS:10,
+  PAD_L:12,PAD_R:14,PAD_Y:12,
+  BOX:{w:800,h:210}
+},
+HV:{
+  ROW_HEIGHT:20,
+  HEADER_SCALE:0.66,
+  NAME_SCALE:0.60,
+  NUM_SCALE:0.60,
+   COLS:[
+    {id:"name",visible:true,width:160,header:"PLUGIN",align:"left"},
+    {id:"installs",visible:true,width:48,header:"INS",align:"right"},
+    {id:"forks",visible:true,width:48,header:"FRK",align:"right"},
+    {id:"total",visible:true,width:48,header:"TTL",align:"right"}
+  ],
+  MAX_ROWS:10,
+  PAD_L:10,PAD_R:10,PAD_Y:10,
+  BOX:{w:400,h:440}
+},
+Q:{
+  ROW_HEIGHT:20,
+  HEADER_SCALE:0.66,
+  NAME_SCALE:0.60,
+  NUM_SCALE:0.60,
+  COLS:[
+    {id:"name",visible:true,width:160,header:"PLUGIN",align:"left"},
+    {id:"installs",visible:true,width:48,header:"INS",align:"right"},
+    {id:"forks",visible:true,width:48,header:"FRK",align:"right"},
+    {id:"total",visible:true,width:48,header:"TTL",align:"right"}
+  ],
+  MAX_ROWS:8,
+  PAD_L:10,PAD_R:10,PAD_Y:10,
+  BOX:{w:400,h:210}
+}
+};
+
+const D="¶";
+const N=("{{ ns | jsonify }}").split(D).filter(Boolean);
+const I=("{{ is | jsonify }}").split(D).map(v=>+v||0);
+const F=("{{ fs | jsonify }}").split(D).map(v=>+v||0);
+
+function rows(){const a=[];for(let i=0;i<N.length;i++)a.push({n:N[i],i:I[i]||0,f:F[i]||0,t:(I[i]||0)+(F[i]||0)});return a.sort((x,y)=>y.t-x.t)}
+function size(){const b=CONFIG.FULL&&CONFIG.FULL.BOX?CONFIG.FULL.BOX:{w:800,h:480};return{w:b.w,h:b.h}}
+function sizeHH(){const b=CONFIG.HH&&CONFIG.HH.BOX?CONFIG.HH.BOX:{w:800,h:240};return{w:b.w,h:b.h}}
+function sizeHV(){const b=CONFIG.HV&&CONFIG.HV.BOX?CONFIG.HV.BOX:{w:400,h:480};return{w:b.w,h:b.h}}
+function sizeQ(){const b=CONFIG.Q&&CONFIG.Q.BOX?CONFIG.Q.BOX:{w:400,h:240};return{w:b.w,h:b.h}}
+function T(n){return Math.round(n)}
+function Fi(n){return Math.round(n)}
+function arc(cx,cy,r,ir,a0,a1){const C=(a,R)=>[cx+Math.cos(a)*R,cy+Math.sin(a)*R];const p0=C(a0,r),p1=C(a1,r),q1=C(a1,ir),q0=C(a0,ir);const large=(a1-a0)%(Math.PI*2)>Math.PI?1:0;return`M ${p0[0]} ${p0[1]} A ${r} ${r} 0 ${large} 1 ${p1[0]} ${p1[1]} L ${q1[0]} ${q1[1]} A ${ir} ${ir} 0 ${large} 0 ${q0[0]} ${q0[1]} Z`}
+function defs(){return `
+<pattern id="p1" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0,0 L8,8 M-2,2 L2,-2 M6,10 L10,6" stroke="#000" stroke-width="3"/></pattern>
+<pattern id="p2" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0,8 L8,0 M-2,6 L2,10 M6,-2 L10,2" stroke="#000" stroke-width="3"/></pattern>
+<pattern id="p3" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0,4 L8,4" stroke="#000" stroke-width="3"/></pattern>
+<pattern id="p4" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M4,0 L4,8" stroke="#000" stroke-width="3"/></pattern>
+<pattern id="p5" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="2" fill="#000"/></pattern>
+<pattern id="p6" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0,0 L8,8 M8,0 L0,8" stroke="#000" stroke-width="2"/></pattern>
+<pattern id="p7" width="6" height="6" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="3" height="3" fill="#000"/><rect x="3" y="3" width="3" height="3" fill="#000"/></pattern>
+<pattern id="p8" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M-2,8 L8,-2 M0,10 L10,0" stroke="#000" stroke-width="2"/></pattern>
+<pattern id="p9" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1" fill="#000"/></pattern>
+<pattern id="p10" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M12,0 a12,12 0 1,1 -0.01,0Z" fill="none" stroke="#000" stroke-width="6" stroke-dasharray="18 18"/></pattern>`}
+function sum(a){return a.reduce((s,v)=>s+v,0)}
+function pct(a){const t=sum(a)||1;return a.map(v=>v/t)}
+function computeColumns(x,w,cols){const active=cols.filter(c=>c.visible!==false);let fixed=0,flex=0;active.forEach(c=>{if(c.width)fixed+=c.width;else flex+=(c.flex||1)});const rem=Math.max(0,w-fixed-((active.length-1)*6));const layout=[];let cur=x;for(const c of active){const cw=c.width?c.width:rem*(c.flex||1)/Math.max(1,flex);layout.push({id:c.id,x:cur,width:cw,header:c.header,align:c.align||"left"});cur+=cw+6}return layout}
+
+function legend(svg,x,y,w,rowH,data,cols){
+  const headH=Fi(rowH*CONFIG.HEADER_SCALE)
+  const numH=Fi(rowH*CONFIG.DATA_NUM_SCALE)
+  const nameH=Fi(rowH*CONFIG.DATA_NAME_SCALE)
+  const layout=computeColumns(x,w,cols)
+  const headY=T(y+headH+6)
+  for(const c of layout){
+    const header=(typeof c.header==="string")?c.header:""
+    if(header.length){
+      const ax=c.align==="center"?c.width/2:(c.align==="right"?c.width:0)
+      const ta=c.align==="center"?'text-anchor="middle"':(c.align==="right"?'text-anchor="end"':'')
+      const ls=(c.id==="name")?' letter-spacing=".12em"':''
+      svg.push(`<text x="${T(c.x+ax)}" y="${headY}" font-family="NicoClean" font-weight="800" font-size="${headH}" ${ta} opacity=".9"${ls}>${header}</text>`)
+    }
+  }
+  const firstY=T(headY+rowH+4)
+  for(let i=0;i<data.length;i++){
+    const pid=(i%10)+1, yy=T(firstY+i*rowH), swH=rowH*.9, swR=rowH*.18
+    for(const c of layout){
+      if(c.id==="swatch-left"||c.id==="swatch-right"){
+        svg.push(`<rect x="${T(c.x)}" y="${T(yy-swH+4)}" width="${T(c.width)}" height="${T(swH)}" rx="${T(swR)}" fill="#fff" stroke="#000" stroke-opacity=".4"/>`)
+        svg.push(`<rect x="${T(c.x)}" y="${T(yy-swH+4)}" width="${T(c.width)}" height="${T(swH)}" fill="url(#p${pid})"/>`)
+      } else if(c.id==="installs"){
+        svg.push(`<text x="${T(c.x+c.width/2)}" y="${yy}" font-family="NicoClean" font-size="${numH}" font-weight="800" text-anchor="middle">${data[i].i}</text>`)
+      } else if(c.id==="forks"){
+        svg.push(`<text x="${T(c.x+c.width/2)}" y="${yy}" font-family="NicoClean" font-size="${numH}" font-weight="800" text-anchor="middle">${data[i].f}</text>`)
+      } else if(c.id==="name"){
+        svg.push(`<text x="${T(c.x+c.width/2)}" y="${yy}" font-family="NicoClean" font-size="${nameH}" text-anchor="middle">${data[i].n}</text>`)
+      }
+    }
+  }
+}
+
+function donut(svg,cx,cy,R,r,vals,label){
+  const P=pct(vals);let a=-Math.PI/2;const g=0.02
+  for(let i=0;i<P.length;i++){const pid=(i%10)+1, span=P[i]*Math.PI*2, a0=a+g, a1=a+span-g; if(a1>a0){svg.push(`<path d="${arc(cx,cy,R,r,a0,a1)}" fill="url(#p${pid})"/>`)} a+=span}
+  svg.push(`<circle cx="${T(cx)}" cy="${T(cy)}" r="${T(r)}" fill="#f6f6f6"/>`)
+  const labelY=T(cy+R+r*CONFIG.DONUT_LABEL_OFFSET)
+  const Lf=Fi(r*CONFIG.DONUT_LABEL_SCALE)
+  svg.push(`<text x="${T(cx)}" y="${labelY}" font-family="NicoClean" font-weight="800" font-size="${Lf}" text-anchor="middle">${label}</text>`)
+}
+
+function boxesFull(w,h,rows){
+  const legendH=CONFIG.LEGEND_ROW_HEIGHT*(rows+2)+18
+  const top=12
+  const gap=CONFIG.BLOCK_GAP
+  const available=Math.max(0,h-(T(top+legendH+gap))-12)
+  const piesH=Math.min(CONFIG.PIES_MAX_HEIGHT,available)
+  const piesY=T(top+legendH+gap)
+  return{legend:{x:12,y:top,w:w-24,h:legendH,row:CONFIG.LEGEND_ROW_HEIGHT},pies:{x:12,y:piesY,w:w-24,h:piesH}}
+}
+
+function renderFull(){
+  const data=rows().slice(0,CONFIG.MAX_ROWS)
+  const sz=size()
+  const root=document.getElementById("rc-root");if(!root){return}
+  const svg=[]
+  svg.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${sz.w} ${sz.h}" width="${sz.w}" height="${sz.h}" preserveAspectRatio="xMinYMin meet" style="display:block">`)
+  svg.push(`<defs>${defs()}</defs>`)
+  const bx=boxesFull(sz.w,sz.h,Math.max(1,data.length))
+  svg.push(`<rect x="${bx.legend.x}" y="${bx.legend.y}" width="${bx.legend.w}" height="${bx.legend.h}" rx="12" fill="#f6f6f6"/>`)
+  legend(svg,bx.legend.x+12,bx.legend.y+8,bx.legend.w-24,bx.legend.row,data,CONFIG.COLUMNS)
+  if(CONFIG.SHOW_DONUTS&&bx.pies.h>0){
+    svg.push(`<rect x="${bx.pies.x}" y="${bx.pies.y}" width="${bx.pies.w}" height="${bx.pies.h}" rx="12" fill="#f6f6f6"/>`)
+    const split=bx.pies.w/2
+    const usableH=Math.max(0,bx.pies.h-(CONFIG.PIES_TOP_PAD+CONFIG.PIES_BOTTOM_PAD))
+    const maxR=Math.min(split*.7,usableH)/2
+    const R=Math.max(0,maxR*CONFIG.DONUT_SCALE)
+    const r=R*.55
+    const cy=T(bx.pies.y+CONFIG.PIES_TOP_PAD+R)
+    const cx1=bx.pies.x+split*.5
+    const cx2=bx.pies.x+split*1.5
+    donut(svg,cx1,cy,R,r,data.map(d=>d.i),"Installs")
+    donut(svg,cx2,cy,R,r,data.map(d=>d.f),"Forks")
+  }
+  svg.push(`</svg>`)
+  root.innerHTML=svg.join("")
+}
+
+function renderHalfH(){
+  const data=rows().slice(0,CONFIG.HH.MAX_ROWS).map(d=>({...d,total:d.i+d.f}))
+  const sz=sizeHH()
+  const root=document.getElementById("rc-root");if(!root)return
+  const padL=CONFIG.HH.PAD_L,padR=CONFIG.HH.PAD_R,padY=CONFIG.HH.PAD_Y
+  const tableW=sz.w-(padL+padR)
+  const rowH=CONFIG.HH.ROW_HEIGHT
+  const svg=[]
+  svg.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${sz.w} ${sz.h}" width="${sz.w}" height="${sz.h}" preserveAspectRatio="xMinYMin meet" style="display:block">`)
+  svg.push(`<defs>${defs()}</defs>`)
+  svg.push(`<rect x="${padL}" y="${padY}" width="${tableW}" height="${sz.h-padY*2}" rx="12" fill="#f6f6f6" stroke="#000" stroke-opacity=".18"/>`)
+  const H=Fi(rowH*CONFIG.HH.HEADER_SCALE)
+  const Nf=Fi(rowH*CONFIG.HH.NAME_SCALE)
+  const Mf=Fi(rowH*CONFIG.HH.NUM_SCALE)
+  const cols=computeColumns(padL+10,tableW-20,CONFIG.HH.COLS)
+  const headY=T(padY+H+6)
+  cols.forEach(c=>{if(!c.header)return;const ax=c.align==="center"?c.width/2:(c.align==="right"?c.width:0);const ta=c.align==="center"?'text-anchor="middle"':(c.align==="right"?'text-anchor="end"':'');svg.push(`<text x="${T(c.x+ax)}" y="${headY}" font-family="NicoClean" font-weight="800" font-size="${H}" ${ta} opacity=".9">${c.header}</text>`)})
+  const firstY=T(headY+rowH+4)
+  for(let i=0;i<data.length;i++){const yy=T(firstY+i*rowH)
+    cols.forEach(c=>{
+      if(c.id==="name"){svg.push(`<text x="${T(c.x)}" y="${yy}" font-family="NicoClean" font-size="${Nf}" text-anchor="start">${data[i].n}</text>`)}
+      else if(c.id==="installs"){svg.push(`<text x="${T(c.x+c.width)}" y="${yy}" font-family="NicoClean" font-size="${Mf}" font-weight="800" text-anchor="end">${data[i].i}</text>`)}
+      else if(c.id==="forks"){svg.push(`<text x="${T(c.x+c.width)}" y="${yy}" font-family="NicoClean" font-size="${Mf}" font-weight="800" text-anchor="end">${data[i].f}</text>`)}
+      else if(c.id==="total"){const tot=Math.round(data[i].total);svg.push(`<text x="${T(c.x+c.width)}" y="${yy}" font-family="NicoClean" font-size="${Mf}" font-weight="800" text-anchor="end">${tot}</text>`)}
+    })
+  }
+  svg.push(`</svg>`)
+  root.innerHTML=svg.join("")
+}
+
+function renderHalfV(){
+  const data=rows().slice(0,CONFIG.HV.MAX_ROWS).map(d=>({...d,total:d.i+d.f}))
+  const sz=sizeHV()
+  const root=document.getElementById("rc-root");if(!root)return
+  const padL=CONFIG.HV.PAD_L,padR=CONFIG.HV.PAD_R,padY=CONFIG.HV.PAD_Y
+  const tableW=sz.w-(padL+padR)
+  const rowH=CONFIG.HV.ROW_HEIGHT
+  const svg=[]
+  svg.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${sz.w} ${sz.h}" width="${sz.w}" height="${sz.h}" preserveAspectRatio="xMinYMin meet" style="display:block">`)
+  svg.push(`<defs>${defs()}</defs>`)
+  svg.push(`<rect x="${padL}" y="${padY}" width="${tableW}" height="${sz.h-padY*2}" rx="12" fill="#f6f6f6" stroke="#000" stroke-opacity=".18"/>`)
+  const H=Fi(rowH*CONFIG.HV.HEADER_SCALE)
+  const Nf=Fi(rowH*CONFIG.HV.NAME_SCALE)
+  const Mf=Fi(rowH*CONFIG.HV.NUM_SCALE)
+  const cols=computeColumns(padL+8,tableW-16,CONFIG.HV.COLS)
+  const headY=T(padY+H+6)
+  cols.forEach(c=>{if(!c.header)return;const ax=c.align==="center"?c.width/2:(c.align==="right"?c.width:0);const ta=c.align==="center"?'text-anchor="middle"':(c.align==="right"?'text-anchor="end"':'');svg.push(`<text x="${T(c.x+ax)}" y="${headY}" font-family="NicoClean" font-weight="800" font-size="${H}" ${ta} opacity=".9">${c.header}</text>`)})
+  const firstY=T(headY+rowH+4)
+  for(let i=0;i<data.length;i++){const yy=T(firstY+i*rowH)
+    cols.forEach(c=>{
+      if(c.id==="name"){svg.push(`<text x="${T(c.x)}" y="${yy}" font-family="NicoClean" font-size="${Nf}" text-anchor="start">${data[i].n}</text>`)}
+      else if(c.id==="installs"){svg.push(`<text x="${T(c.x+c.width)}" y="${yy}" font-family="NicoClean" font-size="${Mf}" font-weight="800" text-anchor="end">${data[i].i}</text>`)}
+      else if(c.id==="forks"){svg.push(`<text x="${T(c.x+c.width)}" y="${yy}" font-family="NicoClean" font-size="${Mf}" font-weight="800" text-anchor="end">${data[i].f}</text>`)}
+      else if(c.id==="total"){const tot=Math.round(data[i].total);svg.push(`<text x="${T(c.x+c.width)}" y="${yy}" font-family="NicoClean" font-size="${Mf}" font-weight="800" text-anchor="end">${tot}</text>`)}
+    })
+  }
+  svg.push(`</svg>`)
+  root.innerHTML=svg.join("")
+}
+
+function renderQuadrant(){
+  const data=rows().slice(0,CONFIG.Q.MAX_ROWS).map(d=>({...d,total:d.i+d.f}))
+  const sz=sizeQ()
+  const root=document.getElementById("rc-root");if(!root)return
+  const padL=CONFIG.Q.PAD_L,padR=CONFIG.Q.PAD_R,padY=CONFIG.Q.PAD_Y
+  const tableW=sz.w-(padL+padR)
+  const rowH=CONFIG.Q.ROW_HEIGHT
+  const svg=[]
+  svg.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${sz.w} ${sz.h}" width="${sz.w}" height="${sz.h}" preserveAspectRatio="xMinYMin meet" style="display:block">`)
+  svg.push(`<defs>${defs()}</defs>`)
+  svg.push(`<rect x="${padL}" y="${padY}" width="${tableW}" height="${sz.h-padY*2}" rx="12" fill="#f6f6f6" stroke="#000" stroke-opacity=".18"/>`)
+  const H=Fi(rowH*CONFIG.Q.HEADER_SCALE)
+  const Nf=Fi(rowH*CONFIG.Q.NAME_SCALE)
+  const Mf=Fi(rowH*CONFIG.Q.NUM_SCALE)
+  const cols=computeColumns(padL+8,tableW-16,CONFIG.Q.COLS)
+  const headY=T(padY+H+6)
+  cols.forEach(c=>{if(!c.header)return;const ax=c.align==="center"?c.width/2:(c.align==="right"?c.width:0);const ta=c.align==="center"?'text-anchor="middle"':(c.align==="right"?'text-anchor="end"':'');svg.push(`<text x="${T(c.x+ax)}" y="${headY}" font-family="NicoClean" font-weight="800" font-size="${H}" ${ta} opacity=".9">${c.header}</text>`)})
+  const firstY=T(headY+rowH+4)
+  for(let i=0;i<data.length;i++){const yy=T(firstY+i*rowH)
+    cols.forEach(c=>{
+      if(c.id==="name"){svg.push(`<text x="${T(c.x)}" y="${yy}" font-family="NicoClean" font-size="${Nf}" text-anchor="start">${data[i].n}</text>`)}
+      else if(c.id==="installs"){svg.push(`<text x="${T(c.x+c.width)}" y="${yy}" font-family="NicoClean" font-size="${Mf}" font-weight="800" text-anchor="end">${data[i].i}</text>`)}
+      else if(c.id==="forks"){svg.push(`<text x="${T(c.x+c.width)}" y="${yy}" font-family="NicoClean" font-size="${Mf}" font-weight="800" text-anchor="end">${data[i].f}</text>`)}
+      else if(c.id==="total"){const tot=Math.round(data[i].total);svg.push(`<text x="${T(c.x+c.width)}" y="${yy}" font-family="NicoClean" font-size="${Mf}" font-weight="800" text-anchor="end">${tot}</text>`)}
+    })
+  }
+  svg.push(`</svg>`)
+  root.innerHTML=svg.join("")
+}
+
+function deepMerge(t,s){if(!s||typeof s!=='object')return t;for(const k of Object.keys(s)){const sv=s[k],tv=t[k];if(Array.isArray(sv)){t[k]=sv.slice()}else if(sv&&typeof sv==='object'){t[k]=deepMerge(tv?{...tv}:{},sv)}else{t[k]=sv}}return t}
+function configure(overrides){if(overrides)deepMerge(CONFIG,overrides)}
+
+return{CONFIG,configure,renderFull,renderHalfH,renderHalfV,renderQuadrant}
+})();
+</script>

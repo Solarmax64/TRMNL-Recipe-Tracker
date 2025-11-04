@@ -1,0 +1,13 @@
+<div class="view rcipe-trckr quad">
+  <div style="font-family: sans-serif;">
+    <h2 style="text-align:center">
+      {{ trmnl.plugin_settings.instance_name }}
+    </h2>
+  </div>    <div id="rc-root"></div>
+</div>
+
+<script>
+  RCIPE_SHARED.configure({ Q: { MAX_ROWS: 7 } });
+  RCIPE_SHARED.configure({ Q: { BOX: { w: 385, h: 200 } } });
+  RCIPE_SHARED.renderQuadrant();
+</script>

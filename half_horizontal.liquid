@@ -1,0 +1,24 @@
+<div class="view rcipe-trckr half-h">
+  <div style="font-family: sans-serif;">
+    <h2 style="text-align:center">
+      {{ trmnl.plugin_settings.instance_name }}
+    </h2>
+  </div>
+  <div id="rc-root"></div>
+</div>
+
+<script>
+  RCIPE_SHARED.configure({
+    HH: {
+      MAX_ROWS: 6,
+      COLS: [
+        { id:"name", width:470, header:"PLUGIN", align:"left" },
+        { id:"installs", width:65, header:"INSTALLS", align:"right" },
+        { id:"forks", width:65, header:"FORKS", align:"right" },
+        { id:"total", width:100, header:"TOTAL", align:"right" }
+      ]
+    }
+  });
+  RCIPE_SHARED.configure({ HH: { BOX: { w: 785, h: 200 } } });
+  RCIPE_SHARED.renderHalfH();
+</script>

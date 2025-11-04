@@ -1,0 +1,16 @@
+---
+strategy: polling
+no_screen_padding: 'yes'
+dark_mode: 'no'
+static_data: ''
+polling_verb: get
+polling_url: "{% assign ids = recipe_ids | split: \",\" %}\r\n{% for id in ids %}https://usetrmnl.com/recipes/{{ id }}.json\r\n{% endfor %}"
+polling_headers: ''
+polling_body: ''
+id: 
+custom_fields:
+- keyname: recipe_ids
+  field_type: multi_string
+  name: Recipe Id(s)
+  description: List of recipe ids to fetch data from
+  placeholder: 123456

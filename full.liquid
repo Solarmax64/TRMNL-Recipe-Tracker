@@ -1,0 +1,28 @@
+<div class="rcipe-trckr full" data-title="{{ trmnl.plugin_settings.instance_name }}">
+  <div style="font-family: sans-serif;">
+    <h2 style="text-align:center">
+      {{ trmnl.plugin_settings.instance_name }}
+    </h2>
+  </div>
+  <div id="rc-root"></div>
+
+</div>
+
+<script>
+  RCIPE_SHARED.configure({
+    FULL:{BOX:{w:800,h:440}},
+    TITLE:{SHOW:true,SIZE:22,TOP:8,GAP:8,LETTER:0.12},
+    SHOW_DONUTS:true,
+    DONUT_SCALE:1,
+    LEGEND_ROW_HEIGHT:24,
+    HEADER_SCALE:0.60,
+    DATA_NUM_SCALE:0.60,
+    DATA_NAME_SCALE:0.60,
+    DONUT_LABEL_SCALE:0.50,
+    PIES_MAX_HEIGHT:230,
+    PIES_TOP_PAD:0,
+    PIES_BOTTOM_PAD:36,
+    BLOCK_GAP:6
+  });
+  RCIPE_SHARED.renderFull();
+</script>
