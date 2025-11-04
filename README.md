@@ -139,9 +139,9 @@ The design is modular:
 ## 🧰 Developer Notes
 
 - Rendering is fully vector-based (SVG) — crisp on all TRMNL screens.
-- Fonts: [NicoClean](https://fonts.google.com/specimen/NicoClean) is used for all text rendering.
+- Fonts: [NicoClean](https://fonts.google.com/specimen/NicoClean) is used for most text rendering.
 - Works with both pattern and grayscale (2-bit) TRMNL displays.
-- Tested on: TRMNL OG, TRMNL X, TRMNL Public Dashboard.
+- Tested on: TRMNL OG
 - Donut labels and legend grids auto-scale based on layout `BOX` sizes.
 
 ---
